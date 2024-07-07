@@ -13,7 +13,7 @@ test.describe('Login form tests', () => {
 
     const existingUser : User = ArrayUtils.GetRandomElement<User>(existingUsers);
     
-    const loginPage : LoginPage = await LoginPage.CreateAsync(page);
+    const loginPage : LoginPage = await LoginPage.NavigateAndCreateAsync(page);
 
     const homePage : HomePage = await loginPage.login(existingUser);
     const welcomeMessage : string = await homePage.getWelcomeMessage();
@@ -29,7 +29,7 @@ test.describe('Login form tests', () => {
       firstName : 'NonExisting',
       lastName : 'AlsoNonExisting'};
     
-    const loginPage : LoginPage = await LoginPage.CreateAsync(page);
+    const loginPage : LoginPage = await LoginPage.NavigateAndCreateAsync(page);
 
     try {
       await loginPage.login(nonExistingUser)
