@@ -2,6 +2,7 @@ import { expect, type Locator, type Page } from '@playwright/test';
 import { User } from '../../../application/src/App';
 import HomePage from 'src/pages/homePage';
 import InvalidCredentialsError from 'src/errors/invalidCredentialsError';
+import SignupPage from './signupPage';
 
 export default class LoginPage {
   readonly page: Page;
@@ -27,15 +28,26 @@ export default class LoginPage {
   public static async CreateAsync (page : Page) : Promise<LoginPage> {
 
     const instance : LoginPage = new LoginPage(page);
-    await instance.goto();
+
+    await instance.loadPage();
     
     return instance;
-}
+  }
 
-  private async goto() {
-    console.log(this.page.url);
+  public static async NavigateAndCreateAsync (page : Page) : Promise<LoginPage> {
+
+    const instance : LoginPage = new LoginPage(page);
+
+    await instance.goto();
+    await instance.loadPage();
+    
+    return instance;
+  }
+
+  private async goto() : Promise<LoginPage> {
     await this.page.goto('/login');
-    await this.loadPage();
+
+    return this;
   }
 
   private async loadPage() {
@@ -56,16 +68,22 @@ export default class LoginPage {
   }
 
   private async fillEmail(email : string) {
-
     await this._emailInput.fill(email);
   }
 
   private async fillPassword(password : string) {
-
     await this._passwordInput.fill(password);
   }
 
   private async isLoginCorrect() : Promise<boolean> {
     return await this._invalidCredentialsMessage.isVisible({timeout: this._errorMessageTimeout});
+  }
+
+  public async gotoSignup() : Promise<SignupPage> {
+    await this._signupLink.click();
+
+    const signupPage = SignupPage.CreateAsync(this.page)
+
+    return signupPage;
   }
 }

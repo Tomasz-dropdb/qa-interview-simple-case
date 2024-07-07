@@ -1,4 +1,5 @@
 import { expect, type Locator, type Page } from '@playwright/test';
+import LoginPage from './loginPage';
 
 export default class HomePage {
   readonly page: Page;
@@ -24,10 +25,10 @@ export default class HomePage {
     await expect(this._title).toBeVisible();
   }
 
-  public async logout() : Promise<HomePage> {
+  public async logout() : Promise<LoginPage> {
     await this._logoutButton.click();
 
-    return this;
+    return LoginPage.CreateAsync(this.page);
   }
 
   public async getWelcomeMessage() : Promise<string> {
