@@ -26,11 +26,11 @@ const SignupPage: React.FC<SignupPageProps> = ({ user, setUser }) => {
           <Form setUser={setUser} />
         </div>
         <br />
-        {labels.login.text} <Link to={`/login`}>{labels.login.cta}</Link>
+        {labels.login.text} <Link to={`/login`} data-testid="login">{labels.login.cta}</Link>
       </div>
 
       <div className="background">
-          <h1>{labels.aboutTitle}</h1>
+          <h1 data-testid="title">{labels.aboutTitle}</h1>
           <br/>
           {labels.perks.map((perk) => (
             <p key={perk}>- {perk}</p>

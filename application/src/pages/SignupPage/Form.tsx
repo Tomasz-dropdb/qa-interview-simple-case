@@ -68,6 +68,7 @@ export const Form: React.FC<FormProps> = ({ setUser }) => {
         {...styleProps}
       />
       <Button
+        data-testid="submitButton"
         variant="contained"
         onClick={handleSubmit}
         disabled={!validateSignupFields(firstName, lastName, email, password)}
