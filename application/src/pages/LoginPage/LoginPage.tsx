@@ -22,11 +22,11 @@ const LoginPage: React.FC<LoginPageProps> = ({ user, setUser }) => {
         <h2>Login</h2>
         <Form setUser={setUser} />
         <br />
-        Don't have an account? <Link to={`/signup`}>Signup</Link>
+        Don't have an account? <Link to={`/signup`} data-testid="signup">Signup</Link>
         <br />
       </div>
       <div className="background">
-        <h1>Welcome to the Strawberry QA Chapter website!</h1>
+        <h1 data-testid="title">Welcome to the Strawberry QA Chapter website!</h1>
       </div>
     </main>
   )

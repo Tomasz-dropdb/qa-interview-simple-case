@@ -24,11 +24,11 @@ const HomePage: React.FC<HomePageProps> = ({ user, setUser }) => {
 
   return (
     <main style={{ padding: '2rem', width: '100%' }}>
-      <h1>Company</h1>
-      <div style={{ display: 'flex', width: '50%', marginBottom: '1rem' }}>
+      <h1 data-testid="title">Company</h1>
+      <div style={{ display: 'flex', width: '50%', marginBottom: '1rem' }} data-testid="welcomeMessage">
         Welcome {user.firstName} {user.lastName}
       </div>
-      <Button variant="contained" onClick={handleLogout}>
+      <Button variant="contained" onClick={handleLogout} data-testid="logout">
         Log out
       </Button>
     </main>

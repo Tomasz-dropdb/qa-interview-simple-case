@@ -1,6 +1,6 @@
-import { test as setup } from '@playwright/test'
-import { promises as fs } from 'fs'
-import { setupDir, setupFile } from '../playwright.config'
+import { test as setup } from '@playwright/test';
+import { promises as fs } from 'fs';
+import { setupDir, setupFile } from 'playwright.config';
 
 export const existingUsers = [
   {
@@ -21,14 +21,14 @@ export const existingUsers = [
     firstName: 'Test3',
     lastName: 'Testsson3',
   },
-] as const
+]
 
-setup('localStorage', async () => {
+setup.beforeAll('Setup local storage data', async () => {
   const storageState = {
     cookies: [],
     origins: [
       {
-        origin: 'http://localhost:8080',
+        origin: '/',
         localStorage: [
           { name: 'users', value: JSON.stringify({ users: existingUsers }) },
         ],

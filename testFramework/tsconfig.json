@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+      /* Language and Environment */
+      "jsx": "react",
+      
+      /* Emit */
+       "sourceMap": true,
+       "outDir": "./dist",
+       "removeComments": true,
+
+       /* Modules */
+       "baseUrl": "./",
+  
+      /* Interop Constraints */
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+  
+      /* Type Checking */
+      "strict": true,
+      "skipLibCheck": true
+    },
+    "exclude": [
+      "node_modules"
+    ]
+  }
+  

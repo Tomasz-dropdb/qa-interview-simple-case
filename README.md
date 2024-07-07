@@ -15,29 +15,36 @@ v20.11.1
 
 ## Steps
 
-- First you will need to fork the repository. We want you to fork it and not create a branch, so we can review your assignment independently. Click the “Fork” button at the top right of the repository page and choose your personal GitHub account to fork the repository.
+1. First you will need to fork the repository. We want you to fork it and not create a branch, so we can review your assignment independently. Click the “Fork” button at the top right of the repository page and choose your personal GitHub account to fork the repository.
 
-- Clone the forked repository to your local machine:
+2. Clone the forked repository to your local machine:
 ```shell
 git clone https://github.com/<your-username>/qa-interview-simple-case.git
 cd qa-interview-simple-case
 ```
 
-- Once you have the repo, you will need to install the dependencies:
+3. Once you have the repo, you will need to install the dependencies for both modules separately:
+
+- Open terminal window and install application dependencies:
+
 ```shell
+cd ./application
 npm install
 ```
+- Open new terminal window and install testFramewrok dependencies, together with playwright test engine (We are using it for E2E tests):
 
-- We are using playwright for our E2E tests, so we need to install the supported browsers. For that we run:
 ```shell
+cd ./testFramework
+npm install
 npx playwright install
 ```
+4. Now you are ready to run the app locally using one of the scripts defined in application module `package.json`. You can try with `npm run dev` and you should see the app running locally and a link to open it in your preferred browser:
 
-- You can also run the tests with the following command `npm run test:e2e` or `npm run test:e2e:headed`
-
-- Now you are ready to run the app locally using one of the scripts defined in `package.json`. You can try with `npm run dev` and you should see the app running locally and a link to open it in your preferred browser:
+    ❗ _Use http://localhost:8080 over 127.0.0.1:8080 due to IPV6 local preferences issue_
 
 ![img.png](img.png)
+
+5. You can run the tests from testFramework terminal with the following command `npm run test:e2e` or `npm run test:e2e:headed`
 
 ## Tasks 📘
 - First of all take some minutes to explore a bit the page. As you can see it's a simple login form and a sign up form. We are using localStorage as our db to keep things simple for this case. Keep in mind that this is just a practice case so there might be typos, some bugs and overall many things that could be improved. So let's try to focus on the tasks themselves!

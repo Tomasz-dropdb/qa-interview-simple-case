@@ -1,0 +1,15 @@
+{
+    "name": "qa-interview-case-test",
+    "version": "0.0.1",
+    "scripts": {
+      "test:e2e": "playwright test",
+      "test:e2e:headed": "playwright test --headed"
+    },
+    "author": "TomaszO",
+    "devDependencies": {
+      "@playwright/test": "^1.44.1",
+      "@types/node": "^20.14.0",
+      "playwright": "^1.44.1"
+    }
+  }
+  
